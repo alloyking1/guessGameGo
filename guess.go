@@ -16,14 +16,15 @@ func gamePlay () {
 	var stage int = 1
 	var guess int 
 	var correctNumber int 
+	var max int = 5
 
-    correctNumber = randGen()
+    correctNumber = randGen(max)
 
 	fmt.Println("Welcome to alloy guess game!!")
 
 	for guess != correctNumber {
 		
-		fmt.Println("Guess a number between 1-5: ")
+		fmt.Printf("\n Guess a number between 1- %d: ", max)
 		fmt.Scanln(&guess)
 
 		if guess == correctNumber {
@@ -34,14 +35,15 @@ func gamePlay () {
 
 			for guess == correctNumber {
 
-				correctNumber = randGen()
+				correctNumber = randGen(max)
 				fmt.Scanln(&guess)
 
 				check := score % 3 
 
 				if check == 0 {
 					stage ++
-					fmt.Printf(" Good job, Your in stage %d", stage )
+					max ++
+					fmt.Printf("\n Good job, Your in stage %d", stage )
 				}
 				
 			}
@@ -51,10 +53,10 @@ func gamePlay () {
 
 }
 
-func randGen () int {
+func randGen (max int) int {
 	rand.Seed(time.Now().UnixNano())
     min := 1
-    max := 5
-	return rand.Intn(max - min + 1) + min
+    maximum := max
+	return rand.Intn(maximum - min + 1) + min
 }
 

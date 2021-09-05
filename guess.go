@@ -18,8 +18,6 @@ func gamePlay () {
 
     correctNumber = randGen()
 
-	fmt.Println(correctNumber)
-
 	for guess != correctNumber {
 		
 		fmt.Println("Guess a number between 1-5: ")

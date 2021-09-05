@@ -13,10 +13,13 @@ func main () {
 func gamePlay () {
 
 	var score int
+	var stage int = 1
 	var guess int 
 	var correctNumber int 
 
     correctNumber = randGen()
+
+	fmt.Println("Welcome to alloy guess game!!")
 
 	for guess != correctNumber {
 		
@@ -26,12 +29,20 @@ func gamePlay () {
 		if guess == correctNumber {
 
 			score ++
+
 			fmt.Printf("%d is the correct number. You'r score is %d", guess, score)
 
 			for guess == correctNumber {
 
 				correctNumber = randGen()
 				fmt.Scanln(&guess)
+
+				check := score % 3 
+
+				if check == 0 {
+					stage ++
+					fmt.Printf(" Good job, Your in stage %d", stage )
+				}
 				
 			}
 			
